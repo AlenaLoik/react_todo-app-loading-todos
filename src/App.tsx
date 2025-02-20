@@ -11,7 +11,7 @@ import { Footer } from './Footer';
 import { Filter } from './types/Filter';
 
 export const App: React.FC = () => {
-  const [todos, setTodos] = useState([] as Todo[]);
+  const [todos, setTodos] = useState<Todo[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [filter, setFilter] = useState(Filter.ALL);
@@ -60,11 +60,6 @@ export const App: React.FC = () => {
   }
 
   const addNewTodo = (title: string) => {
-    // if (!newTodo) setTitleError('Please enter a title');
-    // if (!USER_ID) setUserIdError('Please select a user');
-    //  Unable to add a todo
-    // Unable to delete a todo
-    // Unable to update a todo
     if (!title) {
       setError('Title should not be empty');
 
@@ -117,9 +112,7 @@ export const App: React.FC = () => {
 
       <div className="todoapp__content">
         <Header isAllCompleted={isAllCompleted} addNewTodo={addNewTodo} />
-        {isLoading ? (
-          <div>Loading...</div>
-        ) : (
+        {!isLoading && (
           <TodoList
             todos={todosForView}
             handleComplete={handleCompleteTodo}
