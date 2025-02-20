@@ -11,7 +11,7 @@ import { Footer } from './Footer';
 import { Filter } from './types/Filter';
 
 export const App: React.FC = () => {
-  const [todos, setTodos] = useState([] as Todo[]);
+  const [todos, setTodos] = useState<Todo[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [filter, setFilter] = useState(Filter.ALL);
